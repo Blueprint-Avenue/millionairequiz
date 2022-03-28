@@ -5,6 +5,7 @@ import './app.css';
 
 function App() {
 
+  const [username, setUsername] = useState(null);
   const [questionNumber, setQuestionNumber ] = useState(1);
   const [timeOut, setTimeOut ] = useState(false);
   const [earned, setEarned ] = useState("$ 0");
