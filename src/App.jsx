@@ -1,6 +1,26 @@
 import './app.css';
 
 function App() {
+
+
+const moneyPyramid = [
+  {id:1, amount:'$ 100'},
+  {id:1, amount:'$ 200'},
+  {id:1, amount:'$ 300'},
+  {id:1, amount:'$ 500'},
+  {id:1, amount:'$ 1000'},
+  {id:1, amount:'$ 2000'},
+  {id:1, amount:'$ 4000'},
+  {id:1, amount:'$ 8000'},
+  {id:1, amount:'$ 16000'},
+  {id:1, amount:'$ 32000'},
+  {id:1, amount:'$ 64000'},
+  {id:1, amount:'$ 125000'},
+  {id:1, amount:'$ 250000'},
+  {id:1, amount:'$ 500000'},
+  {id:1, amount:'$ 1000000'},
+]
+
   return (
     <div className="app">
      <div className="main">main</div>
@@ -10,18 +30,7 @@ function App() {
            <span className='moneyListItemNumber'>4</span>
            <span className='moneyListItemAmount'>$ 400</span>
          </li>
-         <li className='moneyListItem'>
-           <span className='moneyListItemNumber'>3</span>
-           <span className='moneyListItemAmount'>$ 300</span>
-         </li>
-         <li className='moneyListItem'>
-           <span className='moneyListItemNumber'>2</span>
-           <span className='moneyListItemAmount'>$ 200</span>
-         </li>
-         <li className='moneyListItem'>
-           <span className='moneyListItemNumber'>1</span>
-           <span className='moneyListItemAmount'>$ 100</span>
-         </li>
+
 
        </ul>
      </div>
