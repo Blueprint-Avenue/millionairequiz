@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import Trivia from './components/Trivia';
+import Timer from './components/Timer';
 import './app.css';
 
 function App() {
@@ -325,7 +326,10 @@ questionNumber > 1 && setEarned(moneyPyramid.find((m)=> m.id === questionNumber 
        {timeOut ? <h1 className='endText'>You Earned:{earned} </h1> :(
          <>
       <div className='top'>
-        <div className="timer">30</div>
+        <div className="timer"><Timer
+        setTimeOut={setTimeOut}
+        questionNumber={questionNumber}
+        /></div>
       </div>
       <div className='bottom'>
         <Trivia
