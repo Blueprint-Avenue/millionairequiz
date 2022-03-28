@@ -28,7 +28,7 @@ useEffect(()=> {
     const handleClick = (a) => {
         setSelectedAnswer(a);
         setClassName('answer active');
-        delay(3000, () =>
+        delay(4000, () =>
         setClassName(a.correct ? "answer correct" : "answer wrong")
         );
         delay(5000, () =>
