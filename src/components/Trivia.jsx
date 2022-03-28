@@ -1,13 +1,47 @@
+import { useState, useEffect } from "react"
 
-export default function Trivia() {
+export default function Trivia({data, setTimeOut, questionNumber,setQuestionNumber}) {
+
+    const [question, setQuestion] = useState(null);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [className, setClassName] = useState('answer');
+
+    const delay = (duration, callback) => {
+        setTimeOut(() =>{
+            callback();
+        }, duration);
+    };
+
+    const handleClick = (a) => {
+        setSelectedAnswer(a);
+        setClassName('answer active');
+        delay(3000, () =>
+        setClassName(a.correct ? "answer correct" : "answer wrong")
+        );
+        delay(6000, () =>
+        {
+            if(a.correct){
+                setQuestionNumber(prev => prev + 1);
+                setSelectedAnswer(null);
+            } else {
+                setTimeOut(true);
+            }
+        }
+        );
+    };
+
+    useEffect(() => {
+      setQuestion(data[questionNumber - 1])
+    }, [data, questionNumber]);
+
+
   return (
     <div className="trivia">
-        <div className="question">Who's the best pop singer?</div>
+        <div className="question">{question?.question}</div>
         <div className="answers">
-            <div className="answer">Michael Jackson</div>
-            <div className="answer">Madonnna</div>
-            <div className="answer">Justin Beiber</div>
-            <div className="answer">Katy Perry</div>
+            {question?.answers.map((a) => (
+            <div className={selectedAnswer === a ? className : "answer"} onClick={()=>handleClick(a)}>{a.text}</div>
+            ))}
         </div>
     </div>
   )
